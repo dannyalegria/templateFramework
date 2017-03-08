@@ -1,0 +1,49 @@
+/* Containers */
+/* Colors */
+/* Typography */
+/* Components */
+/* Breakpoints */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* Font */
+a {
+  cursor: pointer; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.column {
+  flex-basis: 100%; }
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1; } }
+
+/* Buttons */
+button {
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  text-align: center;
+  transition-duration: 0.4s; }
+  button:hover {
+    background-color: grey;
+    color: white; }
+  button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: white;
+    color: black; }
+  button.pill {
+    border-radius: 17px; }
