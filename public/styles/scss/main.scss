@@ -40,18 +40,91 @@
 // 1.) Variables:
 // ~~~~~~~~~~~~~~~
 
-/* Containers */
-$x-small: 600px;
-$small: 800px;
-$medium: 1000px;
-$large: 1200px;
-$full: 100%;
-
-// Breakpoints
-$mobile: $x-small;
-$desktop: $medium;
-
 /* Colors */
+
+$black: #000;
+$white: #fff;
+$blue: #0000FF;
+$yellow: #FFFF00;
+$green: #008000;
+$orange: #FFA500;
+$red: #FF0000;
+$cyan: #00FFFF;
+$magenta: #FF00FF;
+
+/* Background Colors */
+.black-background {
+	background-color: $black;
+}
+
+.white-background {
+	background-color: $white;
+}
+
+.blue-background {
+	background-color: $blue;
+}
+
+.yellow-background {
+	background-color: $yellow;
+}
+
+.green-background {
+	background-color: $green;
+}
+
+.orange-background {
+	background-color: $orange;
+}
+
+.red-background {
+	background-color: $red;
+}
+.cyan-background {
+	background-color: $cyan;
+}
+
+.magenta-background {
+	background-color: $magenta;
+}
+
+/* Text Colors */
+
+.black-text {
+	text-color: $black;
+}
+
+.white-text {
+	text-color: $white;
+}
+
+.blue-text {
+	text-color: $blue;
+}
+
+.yellow-text {
+	text-color: $yellow;
+}
+
+.green-text {
+	text-color: $green;
+}
+
+.orange-text {
+	text-color: $orange;
+}
+
+.red-text {
+	text-color: $red;
+}
+.cyan-text {
+	text-color: $cyan;
+}
+
+.magenta-text {
+	text-color: $magenta;
+}
+
 
 /* Typography */
 
@@ -110,20 +183,67 @@ a {
 // 6.) Helpers:
 // ~~~~~~~~~~~~~
 
+.responsive-img {
+	width: 100%;
+}
+
+.bordered {
+	border: solid 2px black;
+}
+
+.centered {
+	justify-content: center;
+}
+
+.text-centered {
+	text-align: center;
+}
+
 // 7.) Grid:
 // ~~~~~~~~~~
 
 // NOTE: Once this is completed and reliable, use this article ( https://kyusuf.com/post/almost-complete-guide-to-flexbox-without-flexbox ) to rewrite it w/out flexbox for all browser support.
+// NOTE When possible, use CSS Grid with these variables. If browser not supported use the below classes to create a grid.
 
-//NOTE Box is for illustrative purposes, just fills in divs.
-.box {
+/*Variables: */
 
-}
+// Containers:
+$x-small: 600px;
+$small: 800px;
+$medium: 1000px;
+$large: 1200px;
+$full-width: 100%;
 
+// Columns:
+$full: 100%;
+$one-third: calc(100% / 3);
+$two-thirds: calc(100% * (2/3));
+$one-quarter: calc(100% / 4);
+$one-half: calc(100% / 2);
+$three-quarters: calc(100% * (3/4));
+
+// Breakpoints:
+$mobile: $x-small;
+$desktop: $medium;
+
+// Containers:
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+	max-width: $full-width;
+};
+.x-small-container {
+	max-width: $x-small;
+};
+.small-container {
+	max-width: $small;
+};
+.medium-container {
+	max-width: $medium;
+};
+.large-container {
+	max-width: $large;
+};
+
+// Row:
 
 .row {
   display: flex;
@@ -131,15 +251,55 @@ a {
   flex-wrap: wrap;
 }
 
-.column {
-  flex-basis: 100%;
+// Columns:
+
+.one-third-column,
+.two-thirds-column,
+.one-quarter-column,
+.one-half-column,
+.three-quarters-column, {
+	flex: 100%;
 }
 
-@media screen and (min-width: 800px) {
-  .column {
-    flex: 1;
-  }
+.column {
+	flex: 100%;
+}
 
+// Responsive Grid Media Query:
+@media screen and (min-width: 800px) {
+
+	//NOTE For evenly sized columns use this:
+	.column {
+	  flex: 1;
+		height: auto;
+	}
+
+	//NOTE For unevenly sized columns, use these
+
+	.one-third-column {
+		flex-basis: $one-third;
+		height: auto;
+	}
+
+	.two-thirds-column {
+		flex-basis: $two-thirds;
+		height: auto;
+	}
+
+	.one-quarter-column {
+		flex-basis: $one-quarter;
+		height: auto;
+	}
+
+	.one-half-column {
+		flex-basis: $one-half;
+		height: auto;
+	}
+
+	.three-quarters-column {
+		flex-basis: $three-quarters;
+		height: auto;
+	}
 }
 
 // 8.) Components:
@@ -147,14 +307,17 @@ a {
 
 /* Buttons */
 
-//NOTE Redo with variables etc.
+//NOTE Redo with variables, and make it a mixin etc.
 button {
-  background-color: white;
+  // background-color: white;
   border-radius: 5px;
   cursor: pointer;
   padding: 0.5em 1em;
   text-align: center;
   transition-duration: 0.4s;
+	&:active {
+		//Figure out how to move the text inside the button when clicked.
+	}
   &:hover {
     background-color: grey;
     color: white;
@@ -166,6 +329,10 @@ button {
     color:black;
   }
   &.pill {
-    border-radius: 17px;
+		border: black solid 2px;
+    border-radius: 30px;
   }
+	&.square {
+		border: black solid 2px;
+	}
 }

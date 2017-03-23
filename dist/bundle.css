@@ -13,8 +13,11 @@ html {
 a {
   cursor: pointer; }
 
+.responsive-img {
+  width: 100%; }
+
 .container {
-  max-width: 1200px;
+  max-width: 70%;
   margin: 0 auto; }
 
 .row {
@@ -23,10 +26,50 @@ a {
   flex-wrap: wrap; }
 
 .column {
-  flex-basis: 100%; }
+  flex-basis: 100%;
+  background-color: grey;
+  border: solid 2px black;
+  height: 100px;
+  text-align: center;
+  align-items: center; }
+
+.one-third-column {
+  flex-basis: calc(100% / 3);
+  background-color: grey;
+  border: solid 2px black;
+  height: 100px; }
+
+.two-thirds-column {
+  flex-basis: calc(100% * (2/3));
+  background-color: grey;
+  border: solid 2px black;
+  height: 100px; }
+
+.one-quarter-column {
+  flex-basis: calc(100% / 4);
+  background-color: grey;
+  border: solid 2px black;
+  height: 100px; }
+
+.one-half-column {
+  flex-basis: calc(100% / 2);
+  background-color: grey;
+  border: solid 2px black;
+  height: 100px; }
+
+.three-quarters-column {
+  flex-basis: calc(100% * (3/4));
+  background-color: grey;
+  border: solid 2px black;
+  height: 100px; }
 
 @media screen and (min-width: 800px) {
-  .column {
+  .column,
+  .one-third-column,
+  .two-thirds-column,
+  .one-quarter-column,
+  .one-half-column,
+  .three-quarters-column {
     flex: 1; } }
 
 /* Buttons */
@@ -40,10 +83,18 @@ button {
   button:hover {
     background-color: grey;
     color: white; }
+  button:focus {
+    outline: none;
+  }
   button.disabled {
     opacity: 0.5;
     cursor: not-allowed;
     background-color: white;
     color: black; }
   button.pill {
-    border-radius: 17px; }
+    border: black solid 2px;
+    border-radius: 30px;
+  }
+  button.square {
+  		border: black solid 2px;
+  }
